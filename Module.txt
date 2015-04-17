@@ -1,13 +1,16 @@
 ﻿Name: MainBit.Themes
 AntiForgery: enabled
-Author: The Orchard Team
+Author: neTp9c
 Website: http://mainbit.com
 Version: 1.9
 OrchardVersion: 1.9
 Description: Description for the module
 Features:
-	MainBit.Themes.BaseUrlSelectonRule
+	MainBit.Themes:
 		Category: Themes
 		Description: Description for feature MainBit.Themes.
+		Dependencies: Orchard.Themes, Orchard.Widgets
+	MainBit.Themes.BaseUrlSelectonRule:
+		Category: Themes
+		Description: Description for feature MainBit.Themes.BaseUrlSelectonRule.
 		Dependencies: Vandelay.ThemePicker
-		
