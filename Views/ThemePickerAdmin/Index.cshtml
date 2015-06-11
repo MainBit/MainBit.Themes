@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Vandelay.Industries.Models.ThemePickerSettingsRecord>
+<h1>@Html.TitleForPage(T("Pick Themes").ToString())</h1>
+@ViewBag.EmptyMessage
+@if (Model != null && Model.Any())
+{
+    <table class="items">
+        <thead>
+            <tr>
+                <th>@T("Name")</th>
+                <th>@T("Theme")</th>
+                <th>@T("RuleType")</th>
+                <th>@T("Criterion")</th>
+                <th>@T("Priority")</th>
+                <th>@T("Link to revert to default theme injected into")</th>
+                <th class="code-action">@T("Actions")</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Theme</td>
+                <td>@item.RuleType</td>
+                <td>@item.Criterion</td>
+                <td>@item.Priority</td>
+                <td>
+                    @if (!String.IsNullOrWhiteSpace(item.Zone)) {
+                        <text>
+                        zone @item.Zone <br />
+                        at position @item.Position
+                        </text>
+                    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "ThemePickerAdmin", new { Id = item.Id })">@T("Edit")</a> | <a href="@Url.Action("Remove", "ThemePickerAdmin", new { Id = item.Id })">@T("Remove")</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<fieldset>
+    @Html.ActionLink(T("Create").ToString(), "Create", new { }, new { @class = "button" })
+</fieldset>

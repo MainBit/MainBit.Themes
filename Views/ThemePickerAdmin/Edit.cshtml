@@ -1,0 +1,46 @@
+﻿@model MainBit.Themes.ViewModels.ThemePickerEditViewModel
+<h1>@Html.TitleForPage(T("Create new theme selection criterion").ToString())</h1>
+<div class="add-code">
+    @Html.ActionLink("Back to list", "Index")
+</div>
+<fieldset>
+    <legend>@T("Create new theme selection criterion")</legend>
+    @using (Html.BeginFormAntiForgeryPost())
+    {
+        @Html.ValidationSummary()
+        @Html.HiddenFor(m => m.ThemePickerSettings.Id)
+        <div>
+            @Html.LabelFor(m => m.ThemePickerSettings.Name, T("Name:"))
+            @Html.TextBoxFor(m => m.ThemePickerSettings.Name, new { @class = "text textMedium" })
+            <span class="hint">@T("A name for the criterion (e.g. IE6 or Mobile).")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ThemePickerSettings.RuleType, T("Rule:"))
+            @Html.DropDownListFor(m => m.ThemePickerSettings.RuleType, new SelectList(Model.ThemeSelectionRules))
+            <span class="hint">@T("The rule that will be used to evaluate the criterion.")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ThemePickerSettings.Criterion, T("Criterion:"))
+            @Html.TextBoxFor(m => m.ThemePickerSettings.Criterion, new { @class = "text textMedium" })
+            <span class="hint">@T(@"The criterion to evaluate (e.g. ""^Mozilla\/4\.0 \(compatible; MSIE 6\.0; Windows NT \d\.\d(.*)\)$"" or ""phone"").")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ThemePickerSettings.Theme, T("Theme:"))
+            @Html.DropDownListFor(m => m.ThemePickerSettings.Theme, new SelectList(Model.Themes))
+            <span class="hint">@T("The theme that must be selected if the criterion matches according to the rule. Only enabled themes appear here. Please enable more than one theme in order to be able to use this feature.")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ThemePickerSettings.Priority, T("Priority:"))
+            @Html.TextBoxFor(m => m.ThemePickerSettings.Priority, new { @class = "text text-small" })
+            <span class="hint">@T("Setting the priority for this rule enables other theme providers to cohabitate with this one. You can leave the default value of 10 in other cases.")</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ThemePickerSettings.Zone, T("Zone:"))
+            @Html.TextBoxFor(m => m.ThemePickerSettings.Zone, new { @class = "text textMedium" })
+            @Html.LabelFor(m => m.ThemePickerSettings.Position, T("Position:"))
+            @Html.TextBoxFor(m => m.ThemePickerSettings.Position, new { @class = "text small" })
+            <span class="hint">@T("Optionally specify a zone name and a position within that zone for a link that enables the user to switch back to the default theme. This link is rendered by the Vandelay_ThemePicker_LinkToDefault shape, using the Vandelay.ThemePicker.LinkToDefault.cshtml template of the theme.")</span>
+        </div>
+        <input class="button" name="@T("Save")" t type="submit" value="Save" />
+    }
+</fieldset>

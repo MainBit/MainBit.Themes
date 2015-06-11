@@ -10,7 +10,15 @@ Features:
 		Category: Themes
 		Description: Description for feature MainBit.Themes.
 		Dependencies: Orchard.Themes, Orchard.Widgets
+	MainBit.Themes.ThemePicker:
+		Category: Themes
+		Description: Description for feature MainBit.Themes.
+		Dependencies: Vandelay.ThemePicker
 	MainBit.Themes.BaseUrlSelectonRule:
 		Category: Themes
 		Description: Description for feature MainBit.Themes.BaseUrlSelectonRule.
+		Dependencies: Vandelay.ThemePicker
+	MainBit.Themes.DateSelectionRule:
+		Category: Themes
+		Description: Description for feature MainBit.Themes.
 		Dependencies: Vandelay.ThemePicker

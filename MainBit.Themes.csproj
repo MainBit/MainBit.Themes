@@ -83,6 +83,11 @@
       <Name>Orchard.Core</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Themes\Orchard.Themes.csproj">
+      <Project>{cde24a24-01d3-403c-84b9-37722e18dfb7}</Project>
+      <Name>Orchard.Themes</Name>
+      <Private>False</Private>
+    </ProjectReference>
     <ProjectReference Include="..\Vandelay.Industries\Vandelay.Industries.csproj">
       <Project>{8ad14ca5-56cd-4b94-89fd-3330aa758131}</Project>
       <Name>Vandelay.Industries</Name>
@@ -90,11 +95,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ThemePickerAdminController.cs" />
     <Compile Include="Extensions\BaseUrlExtensions.cs" />
+    <Compile Include="Menus\ThemePickerAdminMenu.cs" />
+    <Compile Include="Migrations\ExtraOptionsMigrations.cs" />
     <Compile Include="Rules\ThemeRuleProvider.cs" />
+    <Compile Include="Services\DateThemeSelectionRule.cs" />
     <Compile Include="Services\BaseUrlThemeSelectionRule.cs" />
+    <Compile Include="ViewModels\ThemePickerEditViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\ThemePickerAdmin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThemePickerAdmin\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThemePickerAdmin\Edit.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
