@@ -24,6 +24,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,7 +99,8 @@
     <Compile Include="Controllers\ThemePickerAdminController.cs" />
     <Compile Include="Extensions\BaseUrlExtensions.cs" />
     <Compile Include="Menus\ThemePickerAdminMenu.cs" />
-    <Compile Include="Migrations\ExtraOptionsMigrations.cs" />
+    <Compile Include="Recipes\Builders\ThemePickerSettingsStep.cs" />
+    <Compile Include="Recipes\Executors\ThemePickerSettingsStep.cs" />
     <Compile Include="Rules\ThemeRuleProvider.cs" />
     <Compile Include="Services\DateThemeSelectionRule.cs" />
     <Compile Include="Services\BaseUrlThemeSelectionRule.cs" />
