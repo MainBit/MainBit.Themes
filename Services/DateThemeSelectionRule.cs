@@ -25,19 +25,33 @@ namespace MainBit.Themes.Services {
         }
 
         public bool Matches(string name, string criterion) {
-
+            
+            // dd.MM-dd.MM -> from-to
             var criterionSegments = criterion
                 .Split(new char[] { '-', '.', ',' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToList();
 
             var utcNow = _clock.UtcNow;
-            var dateTime = new DateTime(DateTime.MinValue.Year, utcNow.Month, utcNow.Day);
+            var leapYear = GetLeapYear();
+            var dateTime = new DateTime(leapYear, utcNow.Month, utcNow.Day);
             var dateTimeLocal = _dateLocalizationServices.ConvertToSiteTimeZone(dateTime);
-            var from = new DateTime(DateTime.MinValue.Year, criterionSegments[1], criterionSegments[0]);
-            var to = new DateTime(DateTime.MinValue.Year, criterionSegments[3], criterionSegments[2]);
+            var dateTimeFrom = new DateTime(leapYear, criterionSegments[1], criterionSegments[0]);
+            var dateTimeTo = new DateTime(leapYear, criterionSegments[3], criterionSegments[2]);
 
-            return IsIn(dateTime, from, to);
+            return IsIn(dateTimeLocal, dateTimeFrom, dateTimeTo);
+        }
+
+        private int GetLeapYear()
+        {
+            //calculate min leap year
+            //var leapYearNumber = DateTime.MinValue.Year;
+            //while (!DateTime.IsLeapYear(leapYearNumber))
+            //{
+            //    leapYearNumber++;
+            //}
+            //return leapYearNumber;
+            return 2000;
         }
 
         private bool IsIn(DateTime dateTime, DateTime from, DateTime to)
