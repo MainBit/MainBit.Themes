@@ -128,6 +128,7 @@
     <Compile Include="Recipes\Builders\ThemePickerSettingsStep.cs" />
     <Compile Include="Recipes\Executors\ThemePickerSettingsStep.cs" />
     <Compile Include="Rules\ThemeRuleProvider.cs" />
+    <Compile Include="Services\UrlThemeSelectionRule.cs" />
     <Compile Include="Services\DateThemeSelectionRule.cs" />
     <Compile Include="Services\BaseUrlThemeSelectionRule.cs" />
     <Compile Include="ViewModels\ThemePickerEditViewModel.cs" />

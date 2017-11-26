@@ -22,3 +22,7 @@ Features:
 		Category: Themes
 		Description: Description for feature MainBit.Themes.
 		Dependencies: Vandelay.ThemePicker
+	MainBit.Themes.UrlSelectonRule:
+		Category: Themes
+		Description: Description for feature MainBit.Themes.UrlSelectonRule.
+		Dependencies: Vandelay.ThemePicker
